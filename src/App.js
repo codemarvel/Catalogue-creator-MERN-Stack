@@ -23,7 +23,7 @@ function App() {
 
             <Navbar.Brand>
               <Link to={"/"} className="nav-link">
-                Ashok Nursery 
+                catalouge
               </Link>
             </Navbar.Brand>
 

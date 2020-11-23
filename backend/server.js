@@ -5,12 +5,13 @@ let bodyParser = require('body-parser');
 let dbConfig = require('./database/db');
 
 // Express Route
-const studentRoute = require('../backend/routes/student.route')
+const studentRoute = require('../backend/routes/product.route')
 
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useFindAndModify: false 
 }).then(() => {
   console.log('Database sucessfully connected!')
 },
@@ -25,7 +26,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cors());
-app.use('/students', studentRoute)
+app.use('/products', studentRoute)
 
 
 // PORT

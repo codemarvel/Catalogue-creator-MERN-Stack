@@ -6,12 +6,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-
+import Carousel from "./components/main/corousel";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import CreateStudent from "./components/create-student.component";
-import EditStudent from "./components/edit-student.component";
-import StudentList from "./components/student-list.component";
+import CreateProduct from "./components/admin/create-product.component";
+import EditProduct from "./components/admin/edit-product.component";
+import Product_Admin_List from "./components/admin/product-list.component";
+import ProductList from "./components/product-component"
 
 function App() {
   return (<Router>
@@ -21,15 +22,14 @@ function App() {
           <Container>
 
             <Navbar.Brand>
-              <Link to={"/create-student"} className="nav-link">
-                React MERN Stack App
+              <Link to={"/"} className="nav-link">
+                Ashok Nursery 
               </Link>
             </Navbar.Brand>
 
             <Nav className="justify-content-end">
               <Nav>
-                <Link to={"/create-student"} className="nav-link">
-                  Create Student
+                <Link to={"/create-product"} className="nav-link">
                 </Link>
               </Nav>
 
@@ -40,25 +40,27 @@ function App() {
               </Nav> */}
 
               <Nav>
-                <Link to={"/student-list"} className="nav-link">
-                  Student List
+                <Link to={"/product-list"} className="nav-link">
                 </Link>
               </Nav>
             </Nav>
 
           </Container>
         </Navbar>
+        
       </header>
-
+              
       <Container>
+      <Carousel></Carousel>
         <Row>
           <Col md={12}>
             <div className="wrapper">
               <Switch>
-                <Route exact path='/' component={CreateStudent} />
-                <Route path="/create-student" component={CreateStudent} />
-                <Route path="/edit-student/:id" component={EditStudent} />
-                <Route path="/student-list" component={StudentList} />
+                <Route exact path='/' component={ProductList} />
+                <Route path="/create-product" component={CreateProduct} />
+                <Route path="/edit-product/:id" component={EditProduct} />
+                <Route path="/product-list" component={Product_Admin_List} />
+                
               </Switch>
             </div>
           </Col>

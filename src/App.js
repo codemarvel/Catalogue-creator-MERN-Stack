@@ -23,13 +23,14 @@ function App() {
 
             <Navbar.Brand>
               <Link to={"/"} className="nav-link">
-                catalouge
+                Catalouge
               </Link>
             </Navbar.Brand>
 
             <Nav className="justify-content-end">
               <Nav>
                 <Link to={"/create-product"} className="nav-link">
+                  Create Product
                 </Link>
               </Nav>
 
@@ -41,6 +42,7 @@ function App() {
 
               <Nav>
                 <Link to={"/product-list"} className="nav-link">
+                  Product List
                 </Link>
               </Nav>
             </Nav>

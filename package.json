@@ -4,8 +4,12 @@
   "description": "MERN Stack backend",
   "main": "server.js",
   "scripts": {
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm install prefix --preifx client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\" ",
+    "start": "nodemon server.js",
+    "dev": "concurrently \"nodemon server.js\" \"npm run client\" ",
     "client": "cd client && npm start"
   },
   "author": "Digamber Rawat",
@@ -15,7 +19,8 @@
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.6.9"
+    "mongoose": "^5.6.9",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

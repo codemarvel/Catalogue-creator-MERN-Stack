@@ -9,6 +9,7 @@ const studentRoute = require('./routes/product.route')
 
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
+
 mongoose.connect(process.env.MONGODB_URI||dbConfig.db, {
   useNewUrlParser: true,
   useFindAndModify: false 
@@ -45,3 +46,12 @@ app.use(function (err, req, res, next) {
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message);
 });
+
+if(process.env.NODE_ENV === "production")
+{
+  app.use(express.static('client/build'));
+  const path =require('path');
+  app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+  })
+}

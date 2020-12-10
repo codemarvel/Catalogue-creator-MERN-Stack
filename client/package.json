@@ -15,8 +15,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "backend":"cd backend && node server.js",
-    "dev":"concurrenty \"react-scripts start\" \"npm run backend\" ",
+    "backend": "cd backend && node server.js",
+    "dev": "concurrenty \"react-scripts start\" \"npm run backend\" ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

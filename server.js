@@ -10,7 +10,7 @@ const studentRoute = require('./routes/product.route')
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGODB_URI||dbConfig.db, {
+mongoose.connect(process.env.MONGODB_URI||dbConfig.MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false 
 }).then(() => {
@@ -37,9 +37,13 @@ const server = app.listen(port, () => {
 })
 
 // 404 Error
-app.use((req, res, next) => {
-  next(createError(404));
-});
+
+
+app.use(express.static('client/build'));
+  const path =require('path');
+  app.get('/',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'client/build/index.html'));
+  });
 
 app.use(function (err, req, res, next) {
   console.error(err.message);
@@ -47,11 +51,5 @@ app.use(function (err, req, res, next) {
   res.status(err.statusCode).send(err.message);
 });
 
-if(process.env.NODE_ENV === "production")
-{
-  app.use(express.static('client/build'));
-  const path =require('path');
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'client','build','index.html'));
-  })
-}
+
+  

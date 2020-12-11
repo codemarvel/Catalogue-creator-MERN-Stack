@@ -33,16 +33,3 @@ export default class ProductView extends Component {
 }
 
 
-
-    /*render() {
-        return (
-            <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.price}</td>
-                <td>{this.props.obj.category}</td>
-                <td>{this.props.obj.description}</td>
-                <td><img src={this.props.obj.img}></img></td>
-            </tr>
-        );
-    }
-}*/

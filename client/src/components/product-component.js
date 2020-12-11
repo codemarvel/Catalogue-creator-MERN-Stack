@@ -17,7 +17,7 @@ export default class ProductList extends Component {
     }
     fetchData(){
   
-      axios.get('http://localhost:4000/products/',{
+      axios.get('/products/',{
         params: {
           category:this.state.category
         }
@@ -55,7 +55,7 @@ export default class ProductList extends Component {
       <button onClick={this.changecategory} value="">Show All</button>
       <button onClick={this.changecategory} value="Indoor">Indoor</button>
       <button onClick={this.changecategory} value="SF">Soil And Fertilisers</button>
-      <button onClick={this.changecategory} value="Outdoor">Oudoor</button>
+      <button onClick={this.changecategory} value="Outdoor">Outdoor</button>
       <button onClick={this.changecategory} value="Tools">Tools</button>
        {this.DataTable()}
     </div>);

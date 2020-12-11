@@ -11,7 +11,7 @@ export default class StudentTableRow extends Component {
     }
 
     deleteProduct() {
-        axios.delete('http://localhost:4000/products/delete-product/' + this.props.obj._id)
+        axios.delete('/products/delete-product/' + this.props.obj._id)
             .then((res) => {
                 console.log('Product successfully deleted!')
                 window.location.reload(false);

@@ -29,7 +29,7 @@ export default class CreateStudent extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/products/edit-product/' + this.props.match.params.id)
+    axios.get('/products/edit-product/' + this.props.match.params.id)
       .then(res => {
         this.setState({
           name: res.data.name,
@@ -75,7 +75,7 @@ export default class CreateStudent extends Component {
     
 
 
-    axios.put('http://localhost:4000/products/update-product/'+this.props.match.params.id, productObject)
+    axios.put('/products/update-product/'+this.props.match.params.id, productObject)
       .then(res => console.log(res.data));
       this.props.history.push("/product-list");
     this.setState({

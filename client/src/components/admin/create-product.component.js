@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-
+const port = process.env.port||4000;
 export default class CreateStudent extends Component {
 
   constructor(props) {
@@ -59,7 +59,7 @@ export default class CreateStudent extends Component {
     
 
 
-    axios.post('http://localhost:4000/products/create-product', studentObject)
+    axios.post('/products/create-product', studentObject)
       .then(res => console.log(res.data));
 
     this.props.history.push("/product-list");

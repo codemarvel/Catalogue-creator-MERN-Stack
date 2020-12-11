@@ -16,7 +16,7 @@ export default class ProductList extends Component {
   }
   fetchData(){
 
-    axios.get('http://localhost:4000/products/',{
+    axios.get('/products/',{
       params: {
         category:this.state.category
       }

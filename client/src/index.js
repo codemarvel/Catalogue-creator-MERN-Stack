@@ -5,10 +5,34 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { usePromiseTracker } from "react-promise-tracker";
+import Loader from 'react-loader-spinner';
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker();
+     return (
+      promiseInProgress && 
+      <div
+    style={{
+        width: "100%",
+        height: "100",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
+     <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
+    </div>
+     )
+   }
 
 ReactDOM.render(
-  
-    <App />,
+  <div>
+    
+    <App />
+    <LoadingIndicator/>
+    
+  </div>
+    ,
   document.getElementById("root")
 );
 

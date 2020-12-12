@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import ProductView from './productview.js'
-
+import { trackPromise} from 'react-promise-tracker';
 export default class ProductList extends Component {
 
     constructor(props) {
@@ -16,7 +16,7 @@ export default class ProductList extends Component {
       };
     }
     fetchData(){
-  
+      trackPromise(
       axios.get('/products/',{
         params: {
           category:this.state.category
@@ -29,19 +29,23 @@ export default class ProductList extends Component {
         })
         .catch((error) => {
           console.log(error);
-        })
+        })) 
     }
     componentDidMount() {
       this.fetchData();
     }
-    componentDidUpdate()
-    {
-      this.fetchData();
-     }
-  
+   
+    componentDidUpdate(prevProps, prevState)
+      {
+        if (prevState.category !== this.state.category) {
+          this.fetchData();
+      }
+       }
+     
      changecategory(e)
      {
       this.setState({category:e.target.value});
+      
      }
       DataTable() {
         return (<CardGroup>{this.state.products.map((res, i) => {

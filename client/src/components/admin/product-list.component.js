@@ -70,6 +70,7 @@ export default class ProductList extends Component {
           </tr>
         </thead>
         <tbody>
+          
           {this.DataTable()}
         </tbody>
       </Table>

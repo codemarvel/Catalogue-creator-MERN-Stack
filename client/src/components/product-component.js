@@ -44,7 +44,7 @@ export default class ProductList extends Component {
      
      changecategory(e)
      {
-      this.setState({category:e.target.value});
+      this.setState({category:e.target.value,products:[]});
       
      }
       DataTable() {
@@ -58,7 +58,7 @@ export default class ProductList extends Component {
       <h2>Categories</h2>
       <button onClick={this.changecategory} value="">Show All</button>
       <button onClick={this.changecategory} value="Indoor">Indoor</button>
-      <button onClick={this.changecategory} value="Manure">Soil And Fertilisers</button>
+      <button onClick={this.changecategory} value="Manure">Soil And Fertilizers</button>
       <button onClick={this.changecategory} value="Outdoor">Outdoor</button>
       <button onClick={this.changecategory} value="Tools">Tools</button>
        {this.DataTable()}

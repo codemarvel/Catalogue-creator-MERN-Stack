@@ -12,7 +12,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CreateProduct from "./components/admin/create-product.component";
 import EditProduct from "./components/admin/edit-product.component";
 import Product_Admin_List from "./components/admin/product-list.component";
-import ProductList from "./components/product-component"
+import ProductList from "./components/product-component";
+import Home_view from "./components/homeview";
 
 function App() {
   return (<Router>
@@ -30,22 +31,22 @@ function App() {
 
             <Nav className="justify-content-end">
               {/*<Nav>
-                <Link to={"/create-product"} className="nav-link">
-                  Create Product
+                <Link to={"/products"} className="nav-link">
+                  Products
                 </Link>
               </Nav>*/}
 
-              {/* <Nav>
-                <Link to={"/edit-student/:id"} className="nav-link">
-                  Edit Student
+               <Nav>
+                <Link to={"/create-product/"} className="nav-link">
+                  Add New Product
                 </Link>
               </Nav> 
 
               <Nav>
                 <Link to={"/product-list"} className="nav-link">
-                  Product List
+                  Edit Product List
                 </Link>
-              </Nav>*/}
+              </Nav>
             </Nav>
 
           </Container>
@@ -63,6 +64,8 @@ function App() {
                 <Route path="/create-product" component={CreateProduct} />
                 <Route path="/edit-product/:id" component={EditProduct} />
                 <Route path="/product-list" component={Product_Admin_List} />
+                {/*<Route path="/" component={Home_view}/>*/}
+
                 
               </Switch>
             </div>

@@ -23,7 +23,7 @@ router.route('/').get((req, res) => {
   var cate=req.query.category;
   if(cate)
   {
-    productSchema.find({category:cate},(error, data) => {
+    productSchema.find({category:new RegExp(cate)},(error, data) => {
     if (error) {
       return next(error)
     } else {
